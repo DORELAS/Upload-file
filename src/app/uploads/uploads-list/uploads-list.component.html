@@ -1,0 +1,12 @@
+<table *ngIf="filesList">
+    <tr *ngFor="let file of filesList">
+        <td *ngIf="file.fileUrl">
+            <div class="element">
+               <div class="fileurl">
+                   <a [href]="file.fileUrl">{{ file.fileUrl }}</a>
+               </div>
+               <span class="title">{{ file.title }}</span>
+            </div>
+        </td>
+    </tr>
+</table>
