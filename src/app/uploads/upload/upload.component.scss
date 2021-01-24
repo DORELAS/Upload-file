@@ -1,0 +1,113 @@
+  img {
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: gray;
+  }
+
+  .form-control-title {
+      margin-bottom: 20px;
+      border: none;
+      padding: 8px 22px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: left;
+      text-decoration: none;
+      outline: none;
+      margin: 0px 0px 12px 0px;
+      border-bottom: 1px solid darkgray;
+      color: gray;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: grey;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 12px #999;
+    margin: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 9px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: green;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 12px #999;
+    margin: 10px 0px 20px 0px;
+}
+
+.form-control-category {
+    border: none;
+    padding: 8px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+    margin: 0px 0px 12px 0px;
+    border-bottom: 1px solid darkgray;
+    color: gray;
+}
+
+
+.form-control-file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.form-control-file::before {
+    content: "Choose file";
+    display: inline-block;
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    padding: 20px 0px;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 15px;
+    width: 0%;
+}
+.form-control-file:hover::before {}
+
+.form-control-file:active::before {
+  // background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  border: none;
+}
+
+
+.error {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: red;
+    text-align: left;
+}

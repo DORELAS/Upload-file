@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="fileForm" (submit)="onSubmit(fileForm.value)">
+            <div class="image">
+                <img
+                    [src]="fileAdd" alt="Add File"
+                    (click)="fileUploader.click()"
+                >
+            </div>
+            <div class="form-group">
+                <label>Select a file to upload</label>
+                <input
+                    type="file"
+                    class="form-control-file"
+                    formControlName="fileUrl"
+                    (change)="showTitle($event)"
+                    #fileUploader
+                >
+            </div>
+            <div class="error" *ngIf="isSubmited && formControls.fileUrl.errors?.required">
+                <span class="error-message">
+                    This filed is required
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-title" formControlName="title" placeholder="File name">
+            </div>
+            <div class="error" *ngIf="isSubmited && formControls.title.errors?.required">
+                <span class="error-message">
+                    This filed is required
+                </span>
+            </div>
+            <div class="form-group">
+                <select formControlName="category" class="form-control-category">
+                    <option value="selected">Please choose a category</option>
+                    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class='form-group'>
+                    <a routerLink="/upload/uploaded-list" class="btn">Control files gallery</a>
+                </div>
+                <div class='form-group'>
+                    <button type="submit" class="button">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
