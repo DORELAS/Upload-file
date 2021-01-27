@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadsService } from 'src/app/services/uploads.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-uploads-list',
@@ -9,21 +11,32 @@ import { UploadsService } from 'src/app/services/uploads.service';
 export class UploadsListComponent implements OnInit {
   filesList: any[];
   rowIndexArray: any[];
+  displayedColumns: string[] = ['title', 'category', 'url'];
+  dataSource: MatTableDataSource<any>;
 
   constructor(
-    private fileService: UploadsService
-  ) { }
-
-  ngOnInit(): void {
+    private fileService: UploadsService,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<UploadsListComponent>
+  ) {
     this.fileService.fileDetailList.snapshotChanges().subscribe((list) => {
       if (list) {
         this.filesList = list.map(item => {
           // ARRAY OF OBJECTS
           return item.payload.val();
         });
-        this.rowIndexArray = Array.from(Array(Math.ceil(this.filesList.length / 3)).keys());
+        const ELEMENT_DATA = this.filesList;
+        this.dataSource = new MatTableDataSource(this.filesList);
       }
     });
   }
+
+  ngOnInit(): void {
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
+
 
 }

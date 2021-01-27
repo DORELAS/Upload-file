@@ -1,3 +1,4 @@
+
 <div class="card">
     <div class="card-body">
         <form [formGroup]="fileForm" (submit)="onSubmit(fileForm.value)">
@@ -7,9 +8,13 @@
                     (click)="fileUploader.click()"
                 >
             </div>
+            <div class="progress-bar" *ngIf="progress">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
             <div class="form-group">
-                <label>Select a file to upload</label>
+                <label>{{ titleName }}</label>
                 <input
+                    style="display: none;"
                     type="file"
                     class="form-control-file"
                     formControlName="fileUrl"
@@ -19,30 +24,46 @@
             </div>
             <div class="error" *ngIf="isSubmited && formControls.fileUrl.errors?.required">
                 <span class="error-message">
-                    This filed is required
+                    This field is required
                 </span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control-title" formControlName="title" placeholder="File name">
+
+              <mat-form-field appearance="fill">
+                <mat-label>File Name</mat-label>
+                  <input
+                      type="text"
+                      matInput
+                      formControlName="title"
+                    >
+              </mat-form-field>
             </div>
             <div class="error" *ngIf="isSubmited && formControls.title.errors?.required">
                 <span class="error-message">
-                    This filed is required
+                    This field is required
                 </span>
             </div>
             <div class="form-group">
-                <select formControlName="category" class="form-control-category">
-                    <option value="selected">Please choose a category</option>
-                    <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
-                </select>
+              <mat-form-field appearance="fill">
+                <mat-label>Select a category</mat-label>
+                <mat-select formControlName="category">
+                  <mat-option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="error" *ngIf="isSubmited && formControls.category.errors?.required">
+                <span class="error-message">
+                    This field is required
+                </span>
             </div>
             <div class="row">
-                <div class='form-group'>
-                    <a routerLink="/upload/uploaded-list" class="btn">Control files gallery</a>
-                </div>
-                <div class='form-group'>
-                    <button type="submit" class="button">Add</button>
-                </div>
+              <div class='row'>
+                <button type="submit" class="button" (submit)="onSubmit(fileForm.value)">Add</button>
+                <button type="submit" class="red-color" (click)="resetForm()">Reset</button>
+              </div>
+              <div class="form-group">
+                <button class="btn" (click)="openDialog()">Control files gallery</button>
+              </div>
             </div>
         </form>
     </div>

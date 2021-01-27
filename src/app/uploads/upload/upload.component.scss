@@ -1,6 +1,6 @@
   img {
-    height: 80px;
-    width: 80px;
+    height: 185px;
+    width: 200px;
     margin: 20px;
   }
 
@@ -32,18 +32,52 @@
 
   .button {
     display: inline-block;
-    padding: 6px 10px;
-    font-size: 20px;
+    padding: 10px 37px;
+    font-size: 16px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: grey;
+    background-color: green;
     border: none;
     border-radius: 15px;
     box-shadow: 5px 5px 12px #999;
-    margin: 20px;
+    margin: 10px;
+  }
+
+  .red-color {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(182, 5, 5);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 12px #999;
+    margin: 10px;
+  }
+
+.button:hover {background-color: lightgreen}
+
+.red-color:hover {background-color: red}
+
+.button:active {
+  background-color: #fff;
+  box-shadow: 5px 5px 12px #999;
+  color: green;
+  transform: translateY(4px);
+}
+
+.red-color:active {
+  background-color: #fff;
+  box-shadow: 5px 5px 12px #999;
+  color: rgb(182, 5, 5);
+  transform: translateY(4px);
 }
 
 .btn {
@@ -55,11 +89,21 @@
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: green;
+    background-color: grey;
     border: none;
     border-radius: 15px;
     box-shadow: 5px 5px 12px #999;
     margin: 10px 0px 20px 0px;
+    width: 100%;
+}
+
+.btn:hover {background-color: lightgrey}
+
+.btn:active {
+  background-color: #fff;
+  box-shadow: 5px 5px 12px #999;
+  color: grey;
+  transform: translateY(4px);
 }
 
 .form-control-category {
@@ -106,8 +150,16 @@
 
 .error {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 11px;
     margin-bottom: 10px;
     color: red;
     text-align: left;
+}
+
+.header {
+  width: 100%;
+}
+
+.progress-bar {
+  margin: 15px 0px;
 }
